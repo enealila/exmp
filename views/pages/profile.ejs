@@ -1,0 +1,24 @@
+<html>
+  <head>
+      <%- include partials/head %>
+  </head>
+  <body>
+    <header><%- include partials/header %></header>  
+    
+    <h1>File Upload</h1>
+    <% typeof msg !='undefined' ? msg:''%>
+    <form
+    action='/upload' 
+    method='post' 
+    encType="multipart/form-data">
+      <input type="radio"  name="upload" value="Header">Header<br>
+      <input type="radio"  name="upload" value="Slide">Slide<br>
+      <input type="radio"  name="upload" value="Video">Video
+      <input type="file" name="myphoto" multiple/>
+      <input type='submit' value='Upload!' />
+  </form>    
+  <script>
+  </script>
+  <footer><%- include partials/footer %></footer>
+  </body>
+</html>
