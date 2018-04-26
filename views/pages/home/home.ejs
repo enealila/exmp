@@ -100,45 +100,77 @@
     }
     </style>
   
-      <%- include partials/head %>
+      <%- include ../partials/head %>
   </head>
-  <body>
-  <header> <%- include partials/header %> </header>
+    <body>
+      <header> <%- include ../partials/header %> </header>
       <div width="1280px" height="720px">
-      <table border="1" width="1280px" height="720px" >
-      <tr>
-      <td >
-        <div class="slideshow-container" >
-          <div class="">
-            <img width="1280px"height="85px" src="/uploads/myphoto-1524149454736.jpg">
-          </div>
-        </div>
-      </td>
-    </tr>
-     <tr>
+        <div class="upload container" width="600px" height="600px" >
+        <table border="2">
+          <tr>
+            <td width="400px" height="50px" colspan="2"><a href="home/list-headers" >Blloku 1 1920x127</a></td>
+          </tr>
+          <tr>
+            <td width="200px" height="100px"><a href="home/list-video" >Blloku 2 1280x720</a></td>
+            <td width="200px" height="100px"><a href="home/list-slide" >Blloku 3 640x720</a></td>
+          </tr>
+          <tr>
+            <td width="400px" height="50px"colspan="2"><a href="home/list-footer" >Blloku 4 1920x233</a></td>
+          </tr>
+        </table>
+      </div>
+      </div>
+    <script >
+//     var slideIndex = 0; 
+// carousel();
+
+// function carousel() {
+//   var i;
+//   var x = document.getElementsByClassName("mySlides");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none"; 
+//   }
+//   slideIndex++;
+//   if (slideIndex > x.length) {slideIndex = 1} 
+//   x[slideIndex-1].style.display = "block"; 
+//   setTimeout(carousel, 2000); // Change image every 2 seconds
+// }
+    </script>
+    <footer><%- include ../partials/footer%></footer> 
+  </body>
+</html>
+
+<!-- <table border="0" width="1280px" height="720px" >
+    <tr>
     <td >
+      
+    </td>
+  </tr>
+   <tr>
+  <td >
     <div class="viedo-container">
-    <div class="myVideos" >
-        
-        
-      <video style="width:500px ;height:500px" id="video" onended="video()"  controls autoplay>
-          
-    <source  src="/uploads" type="video/mp4">
-  
-</video>
-</div>
-</div>
+      <div class="myVideos" >    
+          <video  width="400px" height="500px"  onended="" controls  autoplay>
+            <% for(var i = 0 ; i <images.length ; i++){%>
+            <% if(images[i].mimetype === 'video/mp4'){%>
+            <source  src="/uploads/<%= images[i].filename%>" type="video/mp4">
+            <% } }%>
+          </video>
+     </div>
+  </div>
 </td>
 <td >
-<div class="slideshow-container" >
-
-  <div class="mySlides ">
-    <div class="numbertext"></div>
-    <img src="" style="width:400px;height:500px"/>
-    <div class="text"></div>
+  <div class="slideshow-container" >
+      <% for(var i=0;i<images.length;i++){%>
+      <% if(images[i].mimetype === 'image/jpeg'){ %>
+    <div class="mySlides ">
+      <div class="numbertext"><%= i+1 %>/<%= images.length%></div>
+      <img src="/uploads/<%= images[i].filename%>" style="width:400px;height:500px"/>
+      <div class="text">Image<%=i+1%> </div>
+    </div>
+    <% } }%>
   </div>
 
-</div>
 </td>
 
 </tr>
@@ -146,30 +178,4 @@
 <td>
 </td>
 </tr>
-  </table>
-</div>
-  <script >
-    var slideIndex = 0; 
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none"; 
-  }
-  slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1} 
-  x[slideIndex-1].style.display = "block"; 
-  setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-
-function video(){
-  alert("The video has ended");
-  }
-
-
-  </script>
-    <footer><%- include partials/footer%></footer> 
-  </body>
-</html>
+</table> -->

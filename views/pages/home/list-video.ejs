@@ -1,0 +1,27 @@
+<html>
+  <head>
+      <%- include ../partials/head %>
+  </head>
+  <body>
+    <header><%- include ../partials/header %></header>  
+    
+    <h1>File Upload</h1>
+    <form
+      action='/uploadVideo' 
+      method='post' 
+      encType="multipart/form-data">
+      <input type="file" name="myphoto" multiple/>
+      <input type='submit' value='Ngarkoni Video!' />
+  </form>  
+  <% for(var i=0;i<images.length;i++){%>
+        <% if(images[i].destination === './public/uploads/video/'){%>
+            <video  width="400px" height="500px"  onended="" controls  autoplay>
+         <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
+        </video>
+        <form action="/remove">
+        <input type="button" value="X">
+        </form>
+        <%}}%>
+  <footer><%- include ../partials/footer %></footer>
+  </body>
+</html>

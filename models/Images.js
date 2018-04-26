@@ -41,9 +41,12 @@ ImageSchema.methods.saveImage = function(newImage,callback) {
         newImage.save(callback);
 }
 
-ImageSchema.methods.findImage = function(filename,callback){
+ImageSchema.methods.findImages = function(filename,callback){
     var query = {filename:filename}
     Image.findOne(query,callback);
+}
+ImageSchema.methods.findImage = function(callback){
+    Image.find({});
 }
  module.exports= mongoose.model('Image',ImageSchema);
 

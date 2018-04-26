@@ -1,13 +1,29 @@
-
+const mongoose 	  = require('mongoose');
+const fs          = require('fs');
+const path        = require('path');
+const Images = require('../models/Images');
 /* GET Home Page. */
 let home = (req, res) => {
+    Promise.all([
+        Images.find({}).exec()
+    ])
+    .then(result => {
+        const images = result[0];
+        console.log(images);
+        res.render('home/home', {
+            images,
+            
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/');
+    })
 
-    // res.json('test home');
-    res.render('home');
 }
 let profile = (req, res) => {
 
-    // res.json('test home');
+    
     res.render('profile');
 }
  /* GET about Page. */
