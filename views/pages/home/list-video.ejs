@@ -7,21 +7,25 @@
     
     <h1>File Upload</h1>
     <form
+    id="form"
       action='/uploadVideo' 
       method='post' 
       encType="multipart/form-data">
-      <input type="file" name="myphoto" multiple/>
-      <input type='submit' value='Ngarkoni Video!' />
+      <input type="file" id="file" name="myphoto"  accept=".mp4"  multiple/>
   </form>  
   <% for(var i=0;i<images.length;i++){%>
         <% if(images[i].destination === './public/uploads/video/'){%>
-            <video  width="400px" height="500px"  onended="" controls  autoplay>
+         
+          <video  width="400px" height="500px"  onended="" controls  autoplay>
          <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
         </video>
-        <form action="/remove">
-        <input type="button" value="X">
-        </form>
+        <a href="/home/list-footer/remove/<%=images[i]._id%>" style="color:red">X</a> <br/>
         <%}}%>
   <footer><%- include ../partials/footer %></footer>
+  <script type="text/javascript">
+    document.getElementById("file").onchange = function() {
+    document.getElementById("form").submit();
+    };
+</script>
   </body>
 </html>

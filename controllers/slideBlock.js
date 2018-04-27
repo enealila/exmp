@@ -6,7 +6,7 @@ const ObjectId    = mongoose.Types.ObjectId();
 
 let listSlide = (req,res)=>{
     Promise.all([
-        Images.find({ }).exec()
+        Images.find({}).exec()
     ])
     .then(result => {
         const images = result[0];
@@ -21,16 +21,16 @@ let listSlide = (req,res)=>{
 }
 
 let remove = (req,res)=>{
-    const id = req.params._id;
-    db.collection('images').deleteOne({ 
-        _id: id 
-      })
-      .then(function(result) {
-        // process result
-      })
-    res.redirect('/listHeaders');
-    console.log('image deleted')
+    const id = req.params;
+    console.log(id);
+    if(id) {
+     Images.findOneAndRemove({_id: id}, (err) => {
+        res.redirect('/home/list-slide');
+            
+        });
+    }
 }
+
 
 module.exports = {
     listSlide,

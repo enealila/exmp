@@ -7,19 +7,24 @@
     
     <h1>File Upload</h1>
     <form
+    id="form"
       action='/uploadSlide' 
       method='post' 
       encType="multipart/form-data">
-      <input type="file" name="myphoto" multiple/>
-      <input type='submit' value='Ngarkoni Foto!' />
+      <input type="file" id="file" name="myphoto"  placeholder="Ngarkoni Foton"  multiple/>
+      
   </form>  
   <% for(var i=0;i<images.length;i++){%>
       <% if(images[i].destination === './public/uploads/slide/'){%>
-        <form action="/remove" method="delete">
+       
         <img src="/uploads/slide/<%=images[i].filename%>" width="100" height="100">
-        <input type="button" value="X">
-        </form>
+        <a href="/home/list-footer/remove/<%=images[i]._id%>" style="color:red">X</a> <br/>
         <%}}%>
   <footer><%- include ../partials/footer %></footer>
+  <script type="text/javascript">
+    document.getElementById("file").onchange = function() {
+    document.getElementById("form").submit();
+    };
+</script>
   </body>
 </html>

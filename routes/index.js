@@ -27,6 +27,9 @@ module.exports = (app) =>{
     app.get('/home/list-video'                           , videoController.listVideo     );
     app.get('/home/list-slide'                           , slideController.listSlide     );
     app.get('/home/list-footer'                          , footerController.listFooter   );
-    app.get('/remove'                                    , headerController.remove       );
-    app.get('/remove'                                    , slideController.remove        );
+    app.get('/home/list-headers/remove/:_id'             , headerController.remove       );
+    app.get('/home/list-slide/remove/:_id'               , slideController.remove        );
+    app.get('/home/list-video/remove/:_id'               , videoController.remove        );
+    app.get('/home/list-footer/remove/:_id'              , footerController.remove       );
+    
 }

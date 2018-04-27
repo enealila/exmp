@@ -3,6 +3,8 @@ const fs = require('fs');
 const path  = require('path');
 const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
+const iframe      = require('load-iframe');
+
 
 let listFooter = (req,res)=>{
     Promise.all([
@@ -21,10 +23,14 @@ let listFooter = (req,res)=>{
 }
 
 let remove = (req,res)=>{
-    const id = req.ObjectId;
-    Images.findByIdAndRemove({ObjectId:id});
-    res.redirect('/listHeaders');
-    console.log('image deleted')
+    const id = req.params;
+    console.log(id);
+    if(id) {
+     Images.findOneAndRemove({_id: id}, (err) => {
+        res.redirect('/home/list-footer');
+            
+        });
+    }
 }
 
 module.exports = {

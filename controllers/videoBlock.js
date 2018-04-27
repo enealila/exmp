@@ -21,11 +21,16 @@ let listVideo = (req,res)=>{
 }
 
 let remove = (req,res)=>{
-    const id = req.ObjectId;
-    Images.findByIdAndRemove({ObjectId:id});
-    res.redirect('/listHeaders');
-    console.log('image deleted')
+    const id = req.params;
+    console.log(id);
+    if(id) {
+     Images.findOneAndRemove({_id: id}, (err) => {
+        res.redirect('/home/list-video');
+            
+        });
+    }
 }
+
 
 module.exports = {
     listVideo,

@@ -7,19 +7,26 @@
     
     <h1>File Upload</h1>
     <form
+    id="form"
+       name="upload"
       action='/uploadFooter' 
       method='post' 
       encType="multipart/form-data">
-      <input type="file" name="myphoto" multiple/>
-      <input type='submit' value='Ngarkoni Foto!' />
+      <input type="file" id="file"  name="myphoto" value="Ngarkoni Foto" multiple/>
+      
   </form>  
   <% for(var i=0;i<images.length;i++){%>
         <% if(images[i].destination === './public/uploads/footer/'){%>
-        <img src="/uploads/footer/<%=images[i].filename%>" width="100" height="100">
-        <form action="/remove">
-        <input type="button" value="X">
-        </form>
+          
+          <img src="/uploads/footer/<%=images[i].filename%>" width="100" height="100">
+          <a href="/home/list-footer/remove/<%=images[i]._id%>" style="color:red">X</a> <br/>
         <%}}%>
   <footer><%- include ../partials/footer %></footer>
-  </body>
+  <script type="text/javascript">
+      document.getElementById("file").onchange = function() {
+      document.getElementById("form").submit();
+      };
+</script>
+</body>
+  
 </html>

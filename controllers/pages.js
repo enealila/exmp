@@ -23,8 +23,21 @@ let home = (req, res) => {
 }
 let profile = (req, res) => {
 
-    
-    res.render('profile');
+    Promise.all([
+        Images.find({}).exec()
+    ])
+    .then(result => {
+        const images = result[0];
+        console.log(images);
+        res.render('profile', {
+            images,
+            
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/');
+    })
 }
  /* GET about Page. */
  let about = (req, res) => {

@@ -50,7 +50,7 @@ let uploadHeader = (req,res) => {
         
     }
 
-    res.redirect('home');
+    res.redirect('home/list-headers');
 
     })
        
@@ -101,7 +101,7 @@ let uploadVideo = (req,res) => {
         
     }
 
-    res.redirect('home');
+    res.redirect('home/list-video');
 
     })
        
@@ -152,7 +152,7 @@ let uploadSlide = (req,res) => {
         
     }
 
-    res.redirect('home');
+    res.redirect('home/list-slide');
 
     })
        
@@ -203,7 +203,7 @@ let uploadFooter = (req,res) => {
         
     }
 
-    res.redirect('home');
+    res.redirect('home/list-footer');
 
     })
        

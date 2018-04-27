@@ -4,18 +4,56 @@
   </head>
   <body>
     <header><%- include partials/header %></header>  
+    <table>
+    <tr>
+        <td >
+          
+        </td>
+      </tr>
+       <tr>
+      <td >
+        <div class="viedo-container">
+          <div class="myVideos" >    
+              <video  width="400px" height="500px"  onended="" controls  autoplay>
+                <% for(var i = 0 ; i <images.length ; i++){%>
+                <% if(images[i].mimetype === 'video/mp4'){%>
+                <source  src="/uploads/<%= images[i].filename%>" type="video/mp4">
+                <% } }%>
+              </video>
+         </div>
+      </div>
+    </td>
+    <td >
+      <div class="slideshow-container" >
+          <% for(var i=0;i<images.length;i++){%>
+          <% if(images[i].destination === './public/uploads/slide'){ %>
+          <div class="mySlides ">
+          <div class="numbertext"><%= i+1 %>/<%= images.length%></div>
+          <img src="/uploads/slide/<%= images[i].filename%>" style="width:400px;height:500px"/>
+          <div class="text">Image<%=i+1%> </div>
+        </div>
+        <% } }%>
+      </div>
+      </td>
+      </tr>
+      </table>
     
-    <h1>File Upload</h1>
-    <form
-      action='/upload' 
-      method='post' 
-      encType="multipart/form-data">
-      <input type="radio"  name="radio" value="0">Header<br>
-      <input type="radio"  name="radio" value="1">Slide<br>
-      <input type="radio"  name="radio" value="2">Video
-      <input type="file" name="myphoto" multiple/>
-      <input type='submit' value='Upload!' />
-  </form>  
   <footer><%- include partials/footer %></footer>
+  <script>
+     var slideIndex = 0; 
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1} 
+  x[slideIndex-1].style.display = "block"; 
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+  </script>
   </body>
 </html>
