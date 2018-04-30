@@ -1,11 +1,6 @@
-<html>
-  <head>
-      <%- include ../partials/head %>
-  </head>
-  <body>
-    <header><%- include ../partials/header %></header>  
-    
-    <h1>File Upload</h1>
+
+    <%-include ./layout%>
+    <h1> Upload Footer</h1>
     <form
     id="form"
        name="upload"
@@ -26,7 +21,4 @@
       document.getElementById("file").onchange = function() {
       document.getElementById("form").submit();
       };
-</script>
-</body>
-  
-</html>
+      </script>

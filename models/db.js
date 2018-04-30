@@ -1,6 +1,6 @@
 var mongoose = require( 'mongoose' );
 
-var dbURI = 'mongodb://localhost:27017/project2';
+var dbURI = 'mongodb://localhost:27017/exmp';
 
 mongoose.connect(dbURI);
 

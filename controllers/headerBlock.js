@@ -3,7 +3,6 @@ const fs = require('fs');
 const path  = require('path');
 const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
-const load        = require('load-iframe');
 let listHeaders = (req,res)=>{
     Promise.all([
         Images.find({ }).exec()

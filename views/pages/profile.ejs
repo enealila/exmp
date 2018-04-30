@@ -4,10 +4,17 @@
   </head>
   <body>
     <header><%- include partials/header %></header>  
-    <table>
+    <table border="1">
     <tr>
-        <td >
-          
+        <td colspan="2" >
+          <div class="slideshow-container" >
+          <% for(var i=0;i<images.length;i++){%>
+          <% if(images[i].destination === './public/uploads/slide/'){ %>
+          <div class="mySlides ">
+          <img src="/uploads/slide/<%= images[i].filename%>" style="width:400px;height:500px"/>
+        </div>
+        <% } }%>
+      </div>
         </td>
       </tr>
        <tr>
@@ -17,7 +24,7 @@
               <video  width="400px" height="500px"  onended="" controls  autoplay>
                 <% for(var i = 0 ; i <images.length ; i++){%>
                 <% if(images[i].mimetype === 'video/mp4'){%>
-                <source  src="/uploads/<%= images[i].filename%>" type="video/mp4">
+                <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
                 <% } }%>
               </video>
          </div>
@@ -26,22 +33,21 @@
     <td >
       <div class="slideshow-container" >
           <% for(var i=0;i<images.length;i++){%>
-          <% if(images[i].destination === './public/uploads/slide'){ %>
+          <% if(images[i].destination === './public/uploads/slide/'){ %>
           <div class="mySlides ">
-          <div class="numbertext"><%= i+1 %>/<%= images.length%></div>
           <img src="/uploads/slide/<%= images[i].filename%>" style="width:400px;height:500px"/>
-          <div class="text">Image<%=i+1%> </div>
         </div>
         <% } }%>
       </div>
       </td>
       </tr>
+
       </table>
     
   <footer><%- include partials/footer %></footer>
   <script>
      var slideIndex = 0; 
-carousel();
+     carousel();
 
 function carousel() {
   var i;
@@ -54,6 +60,7 @@ function carousel() {
   x[slideIndex-1].style.display = "block"; 
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
+
   </script>
   </body>
 </html>
