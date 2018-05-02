@@ -5,6 +5,7 @@ const header 	 = require('./headerBlock');
 const video 	 = require('./videoBlock');
 const slide 	 = require('./slideBlock');
 const footer 	 = require('./footerBlock');
+const table		 = require('./tableBlock');
 module.exports = {
 	pages	  	,
 	accounts  	,
@@ -13,4 +14,5 @@ module.exports = {
 	video		,
 	slide		,
 	footer		,
+	table		,
 }

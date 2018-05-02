@@ -1,0 +1,44 @@
+
+    <%-include ./layout%>
+    <h1> Upload Table</h1>
+   
+
+  <table border="1" width="300px" height="400px">
+      <tr>
+          <td>Monedha</td>
+          <td>Shitet</td>
+          <td>Blihet</td>
+      </tr>
+      <tr>
+          <form action="/updateTable" method="POST">
+        <td><input type="text" name="name" placeholder="<%= table[0].name%>" </td>
+        <td><%= table[0].sell%></td>
+        <td><%= table[0].buy%> </td>
+     </tr>
+     <tr>
+        <td><%= table[1].name%></td>
+        <td><%= table[1].sell%></td>
+        <td><%= table[1].buy%> </td>
+     </tr>
+     <tr>
+        <td><%= table[2].name%> </td>
+        <td><%= table[2].sell%></td>
+        <td><%= table[2].buy%> </td>
+     </tr>
+    </form>
+  </table>
+  <footer><%- include ../partials/footer %></footer>
+  <script type="text/javascript">
+    //   document.getElementById("buy").onchange = function() {
+    //   document.getElementById("form").submit();
+    //   };
+//        <form
+//     id="form"
+//        name="upload"
+//       action='/uploadTable' 
+//       method='post' >
+//       <input type="text" id="name" name="name"  placeholder="Monedha" />
+//       <input type="text" id="sell" name="sell"  placeholder="sell" />
+//       <input type="text" id="buy" name="buy"  placeholder="buy" />
+//   </form>  
+      </script>

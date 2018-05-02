@@ -7,6 +7,7 @@ const slideController       = require('../controllers').slide;
 const footerController      = require('../controllers').footer;
 const user                  = require('../core/middleware/auth');
 const block                 = require('../controllers').block;
+const tableController       = require('../controllers').table;
 module.exports = (app) =>{
     
     app.get('/login'            , user.is.NOT_LOGGED    , accountsController.login      );
@@ -32,5 +33,8 @@ module.exports = (app) =>{
     app.get('/home/list-slide/remove/:_id'               , slideController.remove        );
     app.get('/home/list-video/remove/:_id'               , videoController.remove        );
     app.get('/home/list-footer/remove/:_id'              , footerController.remove       );
-    app.get('home/list-footer'                           , headerController.listHeaders       );
+    app.get('/home/list-table'                           , tableController.listTable     );
+    app.post('/uploadTable'                              , tableController.postTable     );
+    app.get('/home/list-table/update/'                   , tableController.update        );
+    app.post('/home/list-table/update/:_id'                  , tableController.update        );
 }
