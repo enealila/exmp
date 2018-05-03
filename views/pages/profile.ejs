@@ -9,39 +9,52 @@
         <td colspan="2" >
           <div class="slideshow-container" >
           <% for(var i=0;i<images.length;i++){%>
-          <% if(images[i].destination === './public/uploads/slide/'){ %>
-          <div class="mySlides ">
-          <img src="/uploads/slide/<%= images[i].filename%>" style="width:400px;height:500px"/>
+          <% if(images[i].destination === './public/uploads/header/'){ %>
+          <div class="mySlidesHeader"  >
+          <img src="/uploads/header/<%= images[i].filename%>" style="width:1280px;height:125px"/>
         </div>
         <% } }%>
       </div>
         </td>
       </tr>
-       <tr>
-      <td >
-        <div class="viedo-container">
-          <div class="myVideos" >    
-              <video  width="400px" height="500px"  onended="" controls  autoplay>
-                <% for(var i = 0 ; i <images.length ; i++){%>
-                <% if(images[i].mimetype === 'video/mp4'){%>
-                <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
-                <% } }%>
-              </video>
-         </div>
-      </div>
-    </td>
-    <td >
-      <div class="slideshow-container" >
-          <% for(var i=0;i<images.length;i++){%>
-          <% if(images[i].destination === './public/uploads/slide/'){ %>
-          <div class="mySlides ">
-          <img src="/uploads/slide/<%= images[i].filename%>" style="width:400px;height:500px"/>
-        </div>
-        <% } }%>
-      </div>
-      </td>
-      </tr>
+      <tr>
+            <td >
+              <div class="viedo-container">
+               <div class="myVideos" > 
+                  <% for(var i = 0 ; i <images.length ; i++){%>
+                      <% if(images[i].mimetype === 'video/mp4'){%>   
+                        <video  width="640px" height="500px"  onended=""  controls> 
+                        <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
+                          <% } }%>
+                  </video>
+                </div>
+              </div>
+            </td>
+         
+            <td >
+            <div class="slideshow-container" >
+                <% for(var i=0;i<images.length;i++){%>
+                <% if(images[i].destination === './public/uploads/slide/'){ %>
+                <div class="mySlides ">
+                <img src="/uploads/slide/<%= images[i].filename%>" style="width:640px;height:500px"/>
+              </div>
+              <% } }%>
+            </div>
+            </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div class="slideshow-container" >
+              <% for(var i=0;i<images.length;i++){%>
+              <% if(images[i].destination === './public/uploads/footer/'){ %>
+              <div class="mySlidesFooter"  >
+              <img src="/uploads/footer/<%= images[i].filename%>" style="width:1280px;height:125px"/>
+            </div>
+            <% } }%>
+          </div>
 
+      </td>
+    </tr>
       </table>
     
   <footer><%- include partials/footer %></footer>
@@ -60,7 +73,6 @@ function carousel() {
   x[slideIndex-1].style.display = "block"; 
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
-
   </script>
   </body>
 </html>

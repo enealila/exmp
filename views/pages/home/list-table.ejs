@@ -11,24 +11,26 @@
       </tr>
       <tr>
         <form action="/home/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
-        <td><input type="text" name="name" id="name" value="<%= table[0].name%>" ></td>
-        <td><input type="text" name="sell" id="sell" value="<%= table[0].sell%>" ></td>
-        <td><input type="text" name="buy" id="buy" value="<%= table[0].buy%>" ></td>
-        <td><input type="submit"></td>
+        <td><input type="text" name="name" id="data1" value="<%= table[0].name%>" ></td>
+        <td><input type="text" name="sell" id="data2" value="<%= table[0].sell%>" ></td>
+        <td><input type="text" name="buy" id="data3" value="<%= table[0].buy%>" ></td>
+        
     </form> 
      </tr>
      <tr>
-        <form action="/home/list-table/update/:1" method="POST" id="form2">
-            <td><input type="text" name="name" value="<%= table[1].name%>" ></td>
-            <td><input type="text" name="sell" value="<%= table[1].sell%>" ></td>
-            <td><input type="text" name="buy" value="<%= table[1].buy%>" ></td>
+        <form action="/home/list-table/update/<%= table[1]._id%>" method="POST" id="form2">
+            <td><input type="text" name="name" id="data4" value="<%= table[1].name%>" ></td>
+            <td><input type="text" name="sell" id="data5" value="<%= table[1].sell%>" ></td>
+            <td><input type="text" name="buy" id="data6" value="<%= table[1].buy%>" ></td>
+  
         </form> 
      </tr>
      <tr>
-            <form action="/home/list-table/update/:2" method="POST" id="form3">
-            <td><input type="text" name="name" value="<%= table[2].name%>" ></td>
-            <td><input type="text" name="sell" value="<%= table[2].sell%>" ></td>
-            <td><input type="text" name="buy" value="<%= table[2].buy%>" ></td>
+            <form action="/home/list-table/update/<%= table[2]._id%>" method="POST" id="form3">
+            <td><input type="text" name="name"  id="data7" value="<%= table[2].name%>" ></td>
+            <td><input type="text" name="sell" id="data8"  value="<%= table[2].sell%>" ></td>
+            <td><input type="text" name="buy" id="data9" value="<%= table[2].buy%>" ></td>
+
         </form> 
      </tr>
      
@@ -36,20 +38,31 @@
   
   <footer><%- include ../partials/footer %></footer>
   <script type="text/javascript">
-    //   document.getElementsById("data").onchange = function() {
-    //    document.getElementById("form1").submit();
-    //   };  
-    //   document.getElementsByTagName("input").onchange = function() {
-    //    document.getElementById("form2").submit();
-    //   };  
-    //   document.getElementsByTagName("input").onchange = function() {
-    //    document.getElementById("form3").submit();
-    //   };
-    
-//     $('form1 input').change(function() {
-//     $(this).closest('form1').submit();
-// });
-    document.getElementById("data").onchange = function() {
-      document.getElementById("form1").submit();
-      };
+    document.getElementById("data1").onchange = function(){
+        document.getElementById("form1").submit();
+    }
+    document.getElementById("data2").onchange = function(){
+        document.getElementById("form1").submit();
+    }
+    document.getElementById("data3").onchange = function(){
+        document.getElementById("form1").submit();
+    }
+    document.getElementById("data4").onchange = function(){
+        document.getElementById("form2").submit();
+    }
+    document.getElementById("data5").onchange = function(){
+        document.getElementById("form2").submit();
+    }
+    document.getElementById("data6").onchange = function(){
+        document.getElementById("form2").submit();
+    }
+    document.getElementById("data7").onchange = function(){
+        document.getElementById("form3").submit();
+    }
+    document.getElementById("data8").onchange = function(){
+        document.getElementById("form3").submit();
+    }
+    document.getElementById("data9").onchange = function(){
+        document.getElementById("form3").submit();
+    }
       </script>

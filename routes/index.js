@@ -36,5 +36,5 @@ module.exports = (app) =>{
     app.get('/home/list-table'                           , tableController.listTable     );
     app.post('/uploadTable'                              , tableController.postTable     );
     app.get('/home/list-table/update/'                   , tableController.update        );
-    app.post('/home/list-table/update/:_id'                  , tableController.update        );
+    app.post('/home/list-table/update/:_id'              , tableController.update        );
 }
