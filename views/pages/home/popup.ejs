@@ -80,7 +80,7 @@
                            <div class="myVideos" > 
                               <% for(var i = 0 ; i <images.length ; i++){%>
                                   <% if(images[i].mimetype === 'video/mp4'){%>   
-                                    <video  width="640px" height="500px"  onended=""   autoplay> 
+                                    <video  width="640px" height="500px"  id="video" > 
                                     <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
                                       <% } }%>
                               </video>
@@ -120,7 +120,7 @@
 function myFunction() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
-    var video = document.getElementsByTagName('video');
+    video.play();
 }
 var slideIndex = 0; 
      carousel();
