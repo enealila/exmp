@@ -1,6 +1,5 @@
 const mongoose    = require('mongoose');
 const User        = mongoose.model('User');
-// const ObjectId    = mongoose.Types.ObjectId();
 const fs          = require('fs');
 const path        = require('path');
 const passport    = require('passport');

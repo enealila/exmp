@@ -3,9 +3,9 @@ const fs = require('fs');
 const path  = require('path');
 const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
-const Table    = require('../models/Table');
+const Table     = require('../models/Table');
 
-let listSlideI = (req,res)=>{
+let listLayoutTable = (req,res)=>{
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -15,7 +15,7 @@ let listSlideI = (req,res)=>{
             const table = result[1];
             console.log(images);
             console.log(table);
-            res.render('home/list-slide-i', {
+            res.render('home/layout-table', {
                 images,table
                 
             });
@@ -25,7 +25,9 @@ let listSlideI = (req,res)=>{
             res.redirect('/');
         })
 }
-let listSlideT = (req,res)=>{
+
+
+let listLayoutImage = (req,res)=>{
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -35,7 +37,7 @@ let listSlideT = (req,res)=>{
             const table = result[1];
             console.log(images);
             console.log(table);
-            res.render('home/list-slide', {
+            res.render('home/layout-image', {
                 images,table
                 
             });
@@ -44,32 +46,10 @@ let listSlideT = (req,res)=>{
             console.log(err);
             res.redirect('/');
         })
-}
-let removeT = (req,res)=>{
-    const id = req.params;
-    console.log(id);
-    if(id) {
-     Images.findOneAndRemove({_id: id}, (err) => {
-        res.redirect('/home/layout-table/list-slide');
-            
-        });
-    }
-}
-let removeI = (req,res)=>{
-    const id = req.params;
-    console.log(id);
-    if(id) {
-     Images.findOneAndRemove({_id: id}, (err) => {
-        res.redirect('/home/layout-image/list-slide');
-            
-        });
-    }
 }
 
 
 module.exports = {
-    listSlideI,
-    listSlideT,
-    removeT,
-    removeI,
+    listLayoutImage,
+    listLayoutTable,
 }

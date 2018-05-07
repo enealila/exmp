@@ -100,24 +100,16 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <table border="1" width="1280" height="125">
-                          <tr>
-                              <td style="text-align:center" >Monedha</td>
-                              <td style="text-align:center" >Shitet</td>
-                              <td style="text-align:center" >Blihet</td>
-                          </tr>
-                          <% for(var i=0; i<table.length;i++){%>
-                          <tr>
-                              <td style="text-align:center" ><%= table[i].name%></td>
-                              <td style="text-align:center" ><%= table[i].sell%></td>
-                              <td style="text-align:center" ><%= table[i].buy%></td>
-                          </tr>
-                          <%}%>
-                      </table>
-                        </td>
-                  
+                       <% for(var i=0;i<images.length;i++){%>
+                            <% if(images[i].destination === './public/uploads/footer/'){ %>
+                        <div class="mySlidesFooter"  >
+                        <img src="/uploads/footer/<%= images[i].filename%>" style="width:1280px;height:125px"/>
+                        </div>
+                            <% } }%>
+                    
+                </td>
                 </tr>
-                  </table>
+         </table>
         </span>
 </div>
 
@@ -142,19 +134,7 @@ function carousel() {
   setTimeout(carousel, 2000); 
 }
 
-// table show
-// <div>
-//                     
-//                  </div>
 
-// <div class="slideshow-container" >
-//                             <% for(var i=0;i<images.length;i++){%>
-//                             <% if(images[i].destination === './public/uploads/footer/'){ %>
-//                             <div class="mySlidesFooter"  >
-//                             <img src="/uploads/footer/<%= images[i].filename%>" style="width:1280px;height:125px"/>
-//                           </div>
-//                           <% } }%>
-//                         </div>
 </script>
 
 </body>

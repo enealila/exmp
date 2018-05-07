@@ -28,20 +28,23 @@ let home = (req, res) => {
 let profile = (req, res) => {
 
     Promise.all([
-        Images.find({}).exec()
-    ])
-    .then(result => {
-        const images = result[0];
-        console.log(images);
-        res.render('profile', {
-            images,
-            
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.redirect('/');
-    })
+        Images.find({}).exec(),
+        Table.find({}).exec()
+        ])
+        .then(result => {
+            const images = result[0];
+            const table = result[1];
+            console.log(images);
+            console.log(table);
+            res.render('profile', {
+                images,table
+                
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.redirect('/');
+        })
 }
  /* GET about Page. */
  let about = (req, res) => {

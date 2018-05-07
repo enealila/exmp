@@ -1,5 +1,3 @@
-// import { CONNREFUSED } from 'dns';
-
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path  = require('path');
@@ -10,19 +8,25 @@ const bodyParser = require('body-parser');
 
 let listTable = (req,res)=>{
     Promise.all([
-        Table.find({ }).exec()
-    ])
-    .then(result => {
-        const table = result[0];
-        res.render('home/list-table', {
-            table,
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.redirect('/');
-    })
+        Images.find({}).exec(),
+        Table.find({}).exec()
+        ])
+        .then(result => {
+            const images = result[0];
+            const table = result[1];
+            console.log(images);
+            console.log(table);
+            res.render('home/list-table', {
+                images,table
+                
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.redirect('/');
+        })
 }
+
 let postTable = (req,res)=>{
 
     var name = req.body.name;
@@ -58,7 +62,7 @@ let update = (req,res)=>{
          if(err){
             console.log(err);
          }
-         res.redirect('/home/list-table');
+         res.redirect('/home/layout-table/list-table');
     })  
 }
 
