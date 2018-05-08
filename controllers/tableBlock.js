@@ -62,7 +62,7 @@ let update = (req,res)=>{
          if(err){
             console.log(err);
          }
-         res.redirect('/home/layout-table/list-table');
+         res.redirect('/home/list-table');
     })  
 }
 

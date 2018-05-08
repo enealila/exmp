@@ -1,0 +1,32 @@
+<%- include ./layout-image%>
+
+    <h1> Upload Video</h1>
+    <form
+    id="form"
+      action='/layout-image/uploadVideoi' 
+      method='post' 
+      encType="multipart/form-data">
+      <input type="file" id="file" name="myphoto"  accept=".mp4"  multiple/>
+  </form>  
+  <table>
+      <tr>
+          <% for(var i=0;i<images.length;i++){%>
+              <% if(images[i].destination === './public/uploads/video/'){%>
+        <td>
+            <video  width="400px" height="500px"  onended="" controls  autoplay>
+                <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
+                </video>
+                <a href="/home/layout-image/list-video/remove/<%=images[i]._id%>" style="color:red">X</a> 
+        </td>
+        <%}}%>
+      </tr>
+    
+    </table>
+    
+  <footer><%- include ../partials/footer %></footer>
+  <script type="text/javascript">
+    document.getElementById("file").onchange = function() {
+    document.getElementById("form").submit();
+    };
+</script>
+ 

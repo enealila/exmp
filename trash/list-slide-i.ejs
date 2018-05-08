@@ -1,9 +1,10 @@
-<%-include ./layout-table%>
+
+    <%- include ./layout-image%>
     
     <h1>Upload Slide</h1>
     <form
     id="form"
-      action='/uploadSlide' 
+      action='/layout-image/uploadSlidei' 
       method='post' 
       encType="multipart/form-data">
       <input type="file" id="file" name="myphoto"  placeholder="Ngarkoni Foton"  multiple/>
@@ -17,7 +18,7 @@
             <td>
             <img src="/uploads/slide/<%=images[i].filename%>" width="200" height="200">
             </td>
-            <td><a href="/home/list-slide/remove/<%=images[i]._id%>" style="color:red">X</a></td>
+            <td><a href="/home/layout-image/list-slide/remove/<%=images[i]._id%>" style="color:red">X</a></td>
        
             <%}}%>
         </tr>

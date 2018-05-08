@@ -31,7 +31,7 @@ let remove = (req,res)=>{
     console.log(id);
     if(id) {
      Images.findOneAndRemove({_id: id}, (err) => {
-        res.redirect('/home/list-footer');
+        res.redirect('/home/layout-image/list-footer');
             
         });
     }

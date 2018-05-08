@@ -1,39 +1,29 @@
 
-<%-include ./layout%>
-
-<div width="1280px" height="720px">
-        <div class="upload container" width="600px" height="600px" >
-        <table style="background-color:#bdbbbb"  border="2">
-          <tr>
-            <td width="400px" height="50px" colspan="2" style="text-align:center"><a href="/home/layout-table/list-headers" id="header">Blloku 1 1920x127</a></td>
-          </tr>
-          <tr>
-            <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-video" >Blloku 2 1280x720</a></td>
-            <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-slide" >Blloku 3 640x720</a></td>
-          </tr>
-          <tr>
-            <td width="400px" height="50px"colspan="2" style="text-align:center"><a href="/home/layout-table/list-table" >Blloku 4 1920x233</a></td>
-          </tr>
-        </table>
-      </div>
+<%-include ./layout-table%>
 
 
-<div>
     <h1> Upload Header</h1>
     <form
     id="form"
-      action='/layout-table/uploadHeader' 
+      action='/uploadHeader' 
       method='post' 
       encType="multipart/form-data">
       <input type="file" id="file" name="myphoto" multiple/>
       
   </form>  
-  <% for(var i=0;i<images.length;i++){%>
-      <% if(images[i].destination === './public/uploads/header/'){%>
-        <img src="/uploads/header/<%=images[i].filename%>" width="100" height="100">
-        <a href="/home/layout-table/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a> <br/>
+  <table>
+    <tr>
+        <% for(var i=0;i<images.length;i++){%>
+        <% if(images[i].destination === './public/uploads/header/'){%>
+            
+        <td>
+        <img src="/uploads/header/<%=images[i].filename%>" width="200" height="200">
+        </td>
+        <td><a href="/home/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a></td>
+   
         <%}}%>
-    </div>
+    </tr>
+</table> 
         <%- include ../partials/footer %>
         <script type="text/javascript">
           document.getElementById("file").onchange = function() {

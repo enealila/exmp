@@ -1,36 +1,33 @@
-<%-include ./layout%>
-<div width="1280px" height="720px">
-    <div class="upload container" width="600px" height="600px" >
-    <table style="background-color:#bdbbbb"  border="2">
-      <tr>
-        <td width="400px" height="50px" colspan="2" style="text-align:center"><a href="/home/layout-table/list-headers" id="header">Blloku 1 1920x127</a></td>
-      </tr>
-      <tr>
-        <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-video" >Blloku 2 1280x720</a></td>
-        <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-slide" >Blloku 3 640x720</a></td>
-      </tr>
-      <tr>
-        <td width="400px" height="50px"colspan="2" style="text-align:center"><a href="/home/layout-table/list-table" >Blloku 4 1920x233</a></td>
-      </tr>
-    </table>
-  </div>
+<%-include ./layout-table%>
 
     <h1> Upload Video</h1>
     <form
     id="form"
-      action='/layout-table/uploadVideo' 
+      action='/uploadVideo' 
       method='post' 
       encType="multipart/form-data">
       <input type="file" id="file" name="myphoto"  accept=".mp4"  multiple/>
   </form>  
-  <% for(var i=0;i<images.length;i++){%>
-        <% if(images[i].destination === './public/uploads/video/'){%>
-         
+  <table>
+    <tr>
+        <% for(var i=0;i<images.length;i++){%>
+            <% if(images[i].destination === './public/uploads/video/'){%>
+      <td>
           <video  width="400px" height="500px"  onended="" controls  autoplay>
-         <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
-        </video>
-        <a href="/home/layout-table/list-video/remove/<%=images[i]._id%>" style="color:red">X</a> <br/>
-        <%}}%>
+              <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
+              </video>
+              <a href="/home/list-video/remove/<%=images[i]._id%>" style="color:red">X</a> 
+      </td>
+      <%}}%>
+    </tr>
+  
+  </table>
+  
+         
+         
+        
+        
+       
   <footer><%- include ../partials/footer %></footer>
   <script type="text/javascript">
     document.getElementById("file").onchange = function() {

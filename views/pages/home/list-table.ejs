@@ -1,21 +1,4 @@
-
-    <%-include ./layout%>
-    <div width="1280px" height="720px">
-            <div class="upload container" width="600px" height="600px" >
-            <table style="background-color:#bdbbbb"  border="2">
-              <tr>
-                <td width="400px" height="50px" colspan="2" style="text-align:center"><a href="/home/layout-table/list-headers" id="header">Blloku 1 1920x127</a></td>
-              </tr>
-              <tr>
-                <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-video" >Blloku 2 1280x720</a></td>
-                <td width="200px" height="100px" style="text-align:center"><a href="/home/layout-table/list-slide" >Blloku 3 640x720</a></td>
-              </tr>
-              <tr>
-                <td width="400px" height="50px"colspan="2" style="text-align:center"><a href="/home/layout-table/list-table" >Blloku 4 1920x233</a></td>
-              </tr>
-            </table>
-          </div>
-
+<%-include ./layout-table%>
           
     <h1> Upload Table</h1>
    
@@ -27,7 +10,7 @@
           <td>Blihet</td>
       </tr>
       <tr>
-        <form action="/home/layout-table/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
+        <form action="/home/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
         <td><input type="text" name="name" id="data1" value="<%= table[0].name%>" ></td>
         <td><input type="text" name="sell" id="data2" value="<%= table[0].sell%>" ></td>
         <td><input type="text" name="buy" id="data3" value="<%= table[0].buy%>" ></td>
@@ -35,7 +18,7 @@
     </form> 
      </tr>
      <tr>
-        <form action="/home/layout-table/list-table/update/<%= table[1]._id%>" method="POST" id="form2">
+        <form action="/home/list-table/update/<%= table[1]._id%>" method="POST" id="form2">
             <td><input type="text" name="name" id="data4" value="<%= table[1].name%>" ></td>
             <td><input type="text" name="sell" id="data5" value="<%= table[1].sell%>" ></td>
             <td><input type="text" name="buy" id="data6" value="<%= table[1].buy%>" ></td>
@@ -43,7 +26,7 @@
         </form> 
      </tr>
      <tr>
-            <form action="/home/layout-table/list-table/update/<%= table[2]._id%>" method="POST" id="form3">
+            <form action="/home/list-table/update/<%= table[2]._id%>" method="POST" id="form3">
             <td><input type="text" name="name"  id="data7" value="<%= table[2].name%>" ></td>
             <td><input type="text" name="sell" id="data8"  value="<%= table[2].sell%>" ></td>
             <td><input type="text" name="buy" id="data9" value="<%= table[2].buy%>" ></td>

@@ -21,7 +21,7 @@
             <td >
               <div class="viedo-container">
                <div class="myVideos" > 
-                  <video  width="888px" height="500px" controls autoplay loop  > 
+                  <video  width="888px" height="500px" controls  loop  > 
                   <% for(var i = 0 ; i <images.length ; i++){%>
                       <% if(images[i].mimetype === 'video/mp4'){%>   
                         <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
