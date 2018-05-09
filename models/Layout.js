@@ -4,8 +4,11 @@ var mongoose= require('mongoose');
 var LayoutSchema =  new mongoose.Schema({
 
  filenameHeader:{
-    type: String
+    type: JSON
     
+ },
+ blocks:{
+     type: JSON
  }
 });
 

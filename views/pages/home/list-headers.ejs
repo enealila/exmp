@@ -1,7 +1,4 @@
-
-<%-include ./layout-table%>
-
-
+<%- include ./layout%>
     <h1> Upload Header</h1>
     <form
     id="form"
@@ -11,6 +8,7 @@
       <input type="file" id="file" name="myphoto" multiple/>
       
   </form>  
+  <a href="/home/save/:src">Save!</a>
   <table>
     <tr>
         <% for(var i=0;i<images.length;i++){%>
@@ -27,6 +25,6 @@
         <%- include ../partials/footer %>
         <script type="text/javascript">
           document.getElementById("file").onchange = function() {
-          document.getElementById("form").submit();
+          //document.getElementById("form").submit();
           };
     </script>

@@ -1,22 +1,33 @@
-const mongoose 	  = require('mongoose');
-const fs          = require('fs');
-const path        = require('path');
-const Images = require('../models/Images');
-const Table = require('../models/Table');
+const mongoose 	    = require('mongoose');
+const fs            = require('fs');
+const path          = require('path');
+const Images        = require('../models/Images');
+const Table         = require('../models/Table');
+const Layout        = require('../models/Layout')
+const Blocks        = require('../models/Blocks');
+const lay          = JSON.stringify(require('../lay.json'));
+// const lay  = JSON.stringify(layj);
 /* GET Home Page. */
 let home = (req, res) => {
     Promise.all([
     Images.find({}).exec(),
-    Table.find({}).exec()
+    Table.find({}).exec(),
+    Layout.find({}).exec(),
+    Blocks.find({}).exec()
     ])
     .then(result => {
         const images = result[0];
         const table = result[1];
+        const layout = result[2];
         console.log(images);
         console.log(table);
+        console.log(layout);
+        console.log(lay);
         res.render('home/home', {
-            images,table
-            
+            images,
+            table,
+            layout,
+            lay ,
         });
     })
     .catch(err => {
