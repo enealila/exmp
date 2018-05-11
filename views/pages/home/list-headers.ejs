@@ -1,13 +1,15 @@
-<%- include ./layout%>
-    <h1> Upload Header</h1>
+
+<%- include ./list-layout%>
+
+<div>
     <form
-    id="form"
+      id="form"
       action='/uploadHeader' 
       method='post' 
       encType="multipart/form-data">
       <input type="file" id="file" name="myphoto" multiple/>
       
-  </form>  
+    </form>  
   <a href="/home/save/:src">Save!</a>
   <table>
     <tr>
@@ -21,10 +23,10 @@
    
         <%}}%>
     </tr>
-</table> 
-        <%- include ../partials/footer %>
-        <script type="text/javascript">
-          document.getElementById("file").onchange = function() {
-          //document.getElementById("form").submit();
-          };
-    </script>
+    </table> 
+</div>
+<%- include ../partials/footer %>
+<script type="text/javascript">
+document.getElementById("file").onchange = function() {
+};
+</script>

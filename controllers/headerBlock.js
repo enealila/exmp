@@ -4,6 +4,7 @@ const path  = require('path');
 const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
 const Table   = require('../models/Table');
+const lay = require('../lay.json');
 let listHeaders = (req,res)=>{
     Promise.all([
         Images.find({}).exec(),
@@ -15,7 +16,7 @@ let listHeaders = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-headers', {
-                images,table
+                images,table,lay
                 
             });
         })

@@ -5,7 +5,7 @@ const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
 const Table       = require('../models/Table');
 const bodyParser = require('body-parser');
-
+const lay = require('../lay.json');
 let listTable = (req,res)=>{
     Promise.all([
         Images.find({}).exec(),
@@ -17,7 +17,7 @@ let listTable = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-table', {
-                images,table
+                images,table,lay
                 
             });
         })

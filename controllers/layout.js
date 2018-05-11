@@ -2,7 +2,10 @@ const mongoose      = require('mongoose');
 const fs            = require('fs');
 const path          = require('path');
 const Layout        = require('../models/Layout');
-
+const Images        = require('../models/Images');
+const Table         = require('../models/Table');
+const Blocks        = require('../models/Blocks');
+const lay          = require('../lay.json');
 let save = ((req,res)=>{
     var filenameHeader = req.params;
     console.log('============================================================');
@@ -25,7 +28,29 @@ let save = ((req,res)=>{
 // })
     res.redirect('/home/');
 })
+let listLayout = (req,res)=>{
+    Promise.all([
+        Images.find({}).exec(),
+        Table.find({}).exec()
+        ])
+        .then(result => {
+            const images = result[0];
+            const table = result[1];
+            console.log(images);
+            console.log(table);
+            res.render('home/list-layout', {
+                images,table,lay
+                
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.redirect('/');
+        })
+}
+
 
 module.exports = {
     save,
+    listLayout,
 }

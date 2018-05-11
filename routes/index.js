@@ -34,6 +34,8 @@ module.exports = (app) =>{
     app.get('/home/list-slide'                 , user.is.LOGGED         , slideController.listSlide         );
     app.get('/home/list-footer'                , user.is.LOGGED         , footerController.listFooter       );
 
+    app.get('/home/list-layout'                , user.is.LOGGED         , layoutController.listLayout       );
+
     app.get('/home/list-headers/remove/:_id'   , user.is.LOGGED         , headerController.remove            );
     app.get('/home/list-slide/remove/:_id'     , user.is.LOGGED         , slideController.remove             );
     app.get('/home/list-video/remove/:_id'     , user.is.LOGGED         , videoController.remove             );
@@ -46,5 +48,5 @@ module.exports = (app) =>{
     app.get('/home/list-table'                  , user.is.LOGGED        , tableController.listTable          );
     app.get('/home/list-table/update/'          , user.is.LOGGED        , tableController.update             );
     app.post('/home/list-table/update/:_id'     , user.is.LOGGED        , tableController.update             );
-    app.get('/home/save/:src'              , user.is.LOGGED        , layoutController.save              );
+    app.get('/home/save/:src'                   , user.is.LOGGED        , layoutController.save              );
 }

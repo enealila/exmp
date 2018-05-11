@@ -5,8 +5,8 @@ const Images        = require('../models/Images');
 const Table         = require('../models/Table');
 const Layout        = require('../models/Layout')
 const Blocks        = require('../models/Blocks');
-const lay          = JSON.stringify(require('../lay.json'));
-// const lay  = JSON.stringify(layj);
+const lay          = require('../lay.json');
+
 /* GET Home Page. */
 let home = (req, res) => {
     Promise.all([

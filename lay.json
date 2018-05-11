@@ -1,72 +1,37 @@
-{"layout": [{
+{"layouts": [{
     "block": [
       {
-        "name": "header",
-        "x": "0",
-        "y": "0",
-        "width": "1280px",
-        "height": "125px",
+        "name": "headers",
+        "x": "500",
+        "y": "150",
+        "width": "400px",
+        "height": "50px",
         "output": "/uploads/header/myphoto-1525075738062.jpg"
       },
       {
         "name": "video",
-        "x": "0",
-        "y": "100",
-        "width": "888px",
-        "height": "500px",
+        "x": "500",
+        "y": "200",
+        "width": "250px",
+        "height": "100px",
         "output": "/uploads/video/myphoto-1525075744263.mp4"
       },
       {
         "name": "slide",
-        "x": "100",
-        "y": "0",
-        "width": "392px",
-        "height": "500px",
+        "x": "750",
+        "y": "200",
+        "width": "150px",
+        "height": "100px",
         "output": "/uploads/slide/myphoto-1525075751534.jpg"
       },
       {
         "name": "footer",
-        "x": "0",
-        "y": "100",
-        "width": "1280px",
-        "height": "125px",
+        "x": "500",
+        "y": "300",
+        "width": "400px",
+        "height": "50px",
         "output": "/uploads/footer/myphoto-1525075757009.jpg"
       }
     ]}
-    ],
-      "block1": [
-        {
-          "name": "header",
-          "x": "0",
-          "y": "0",
-          "width": "1280px",
-          "height": "125px",
-          "output": "/uploads/header/myphoto-1525075738062.jpg"
-        },
-        {
-          "name": "video",
-          "x": "0",
-          "y": "100",
-          "width": "888px",
-          "height": "500px",
-          "output": "/uploads/video/myphoto-1525075744263.mp4"
-        },
-        {
-          "name": "slide",
-          "x": "100",
-          "y": "0",
-          "width": "392px",
-          "height": "500px",
-          "output": "/uploads/slide/myphoto-1525075751534.jpg"
-        },
-        {
-          "name": "footer",
-          "x": "0",
-          "y": "100",
-          "width": "1280px",
-          "height": "125px",
-          "output": "/uploads/footer/myphoto-1525075757009.jpg"
-        }
-      ]
+    ]
     }
-    

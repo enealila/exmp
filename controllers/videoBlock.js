@@ -4,7 +4,7 @@ const path  = require('path');
 const Images = require('../models/Images');
 const ObjectId    = mongoose.Types.ObjectId();
 const Table    = require('../models/Table');
-
+const lay = require('../lay.json');
 let listVideo = (req,res)=>{
     Promise.all([
         Images.find({}).exec(),
@@ -16,7 +16,7 @@ let listVideo = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-video', {
-                images,table
+                images,table,lay
                 
             });
         })

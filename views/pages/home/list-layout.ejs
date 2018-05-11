@@ -1,0 +1,35 @@
+<%- include ./layout %>
+
+<div>
+        <% for(var i=0;i<lay.layouts.length;i++){%>
+                <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
+                        <a href="/home/list-<%= lay.layouts[i].block[y].name%>"> 
+        <table style="background-color:aqua;text-align:center" id="<%= lay.layouts[i].block[y].name%>" border="1" width="<%= lay.layouts[i].block[y].width%>" height="<%= lay.layouts[i].block[y].height%>" >
+            <tr>
+                 <td ><%= lay.layouts[i].block[y].name%></td>
+       </tr>
+    </table>
+</a>         
+   <% }%>
+   <% }%>
+
+</div>
+ 
+<script>
+var header =document.getElementById('headers');
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+var video =document.getElementById('video');
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+var slide =document.getElementById('slide');
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+var footer =document.getElementById('footer');
+footer.style.position = "absolute";
+footer.style.left = '<%= lay.layouts[0].block[3].x%>';
+footer.style.top = '<%= lay.layouts[0].block[3].y%>';
+</script>
