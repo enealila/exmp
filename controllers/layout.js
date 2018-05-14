@@ -29,6 +29,7 @@ let save = ((req,res)=>{
     res.redirect('/home/');
 })
 let listLayout = (req,res)=>{
+    var id = req.params.id;
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -38,8 +39,9 @@ let listLayout = (req,res)=>{
             const table = result[1];
             console.log(images);
             console.log(table);
+            console.log(id);
             res.render('home/list-layout', {
-                images,table,lay
+                images,table,lay,id
                 
             });
         })

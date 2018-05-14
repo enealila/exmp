@@ -108,12 +108,11 @@
 
       <div width="1280px" height="720px">
               <table style="background-color:#bdbbbb"  border="2">
+                <%for(var i=0;i<lay.layouts.length;i++){%>
                 <tr>
-                  <td width="400px" height="50px"  style="text-align:center"><a href="/home/list-layout/">Layout1</a></td>
+                  <td width="400px" id="<%=i%>" height="50px"  style="text-align:center"><a href="/home/list-layout/<%= lay.layouts[i].id%>">Layout</a></td>
                 </tr>
-                <tr>
-                  <td width="400px" height="50px" style="text-align:center"><a href="/home/list-layout" >Layout2</a></td>
-                </tr>
+                <%}%>
               </table>
             </div>
     

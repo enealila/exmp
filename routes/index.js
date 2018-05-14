@@ -29,12 +29,17 @@ module.exports = (app) =>{
     app.post('/uploadFoote'                                            , imagesController.uploadFooter      );
     app.post('/uploadSlide'                                            , imagesController.uploadSlide       );
 
-    app.get('/home/list-headers'               , user.is.LOGGED         , headerController.listHeaders      );
-    app.get('/home/list-video'                 , user.is.LOGGED         , videoController.listVideo         );
-    app.get('/home/list-slide'                 , user.is.LOGGED         , slideController.listSlide         );
-    app.get('/home/list-footer'                , user.is.LOGGED         , footerController.listFooter       );
+    app.get('/home/list-headers/'               , user.is.LOGGED         , headerController.listHeaders      );
+    app.get('/home/list-video/'                 , user.is.LOGGED         , videoController.listVideo         );
+    app.get('/home/list-slide/'                 , user.is.LOGGED         , slideController.listSlide         );
+    app.get('/home/list-footer/'                , user.is.LOGGED         , footerController.listFooter       );
 
-    app.get('/home/list-layout'                , user.is.LOGGED         , layoutController.listLayout       );
+    app.get('/home/list-layout/:id/list-headers/'         , user.is.LOGGED         , headerController.listHeaders      );
+    app.get('/home/list-layout/:id/list-video/'           , user.is.LOGGED         , videoController.listVideo         );
+    app.get('/home/list-layout/:id/list-slide/'           , user.is.LOGGED         , slideController.listSlide         );
+    app.get('/home/list-layout/:id/list-footer/'          , user.is.LOGGED         , footerController.listFooter       );
+
+    app.get('/home/list-layout/:id'                , user.is.LOGGED         , layoutController.listLayout       );
 
     app.get('/home/list-headers/remove/:_id'   , user.is.LOGGED         , headerController.remove            );
     app.get('/home/list-slide/remove/:_id'     , user.is.LOGGED         , slideController.remove             );

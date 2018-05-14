@@ -1,6 +1,5 @@
 
 <%- include ./list-layout%>
-
 <div>
 <div>
         <form
@@ -12,27 +11,22 @@
       </form>  
       <table>
         <tr>
-            <% for(var i=0;i<images.length;i++){%>
-                <% if(images[i].destination === './public/uploads/video/'){%>
+            <% for(var i=0;i<lay.layouts.length;i++){%>
+                <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
+                  <% if(lay.layouts[i].block[y].name === 'video'){%>
+                    <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
           <td>
-              <video  width="300px" height="250px"  onended="" >
-                  <source  src="/uploads/video/<%= images[i].filename%>" type="video/mp4">
+                  <video  width="300px" height="250px" controls >
+                  <source  src="<%=lay.layouts[i].block[y].output[z].images%>" type="video/mp4" >
                   </video>
                   <a href="/home/list-video/remove/<%=images[i]._id%>" style="color:red">X</a> 
           </td>
-          <%}}%>
-        </tr>
-      
-      </table>
+          <% }} }}%>
+        </tr>                           
+      </table>               
 </div>
 </div>
-  
-         
-         
-        
-        
-       
-  <footer><%- include ../partials/footer %></footer>
+ <footer><%- include ../partials/footer %></footer>
   <script type="text/javascript">
     document.getElementById("file").onchange = function() {
     document.getElementById("form").submit();

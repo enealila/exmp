@@ -1,4 +1,5 @@
 {"layouts": [{
+    "id":"0",
     "block": [
       {
         "name": "headers",
@@ -6,7 +7,7 @@
         "y": "150",
         "width": "400px",
         "height": "50px",
-        "output": "/uploads/header/myphoto-1525075738062.jpg"
+        "output": [{"images":"/uploads/header/myphoto-1525765055209.png"}]
       },
       {
         "name": "video",
@@ -14,7 +15,7 @@
         "y": "200",
         "width": "250px",
         "height": "100px",
-        "output": "/uploads/video/myphoto-1525075744263.mp4"
+        "output": [{"images":"/uploads/video/myphoto-1525766131808.mp4"}]
       },
       {
         "name": "slide",
@@ -22,7 +23,11 @@
         "y": "200",
         "width": "150px",
         "height": "100px",
-        "output": "/uploads/slide/myphoto-1525075751534.jpg"
+        "output": [
+                  {"images":"/uploads/slide/myphoto-1525075751534.jpg"},
+                  {"images":"/uploads/slide/myphoto-1525075751534.jpg"},
+                  {"images":"/uploads/slide/myphoto-1525075751534.jpg"}
+                  ]
       },
       {
         "name": "footer",
@@ -30,8 +35,58 @@
         "y": "300",
         "width": "400px",
         "height": "50px",
-        "output": "/uploads/footer/myphoto-1525075757009.jpg"
+        "output": [{"images":"/uploads/footer/myphoto-1525075757009.jpg"}]
       }
-    ]}
+    ]},{
+      "id":"1",
+      "block": [
+        {
+          "name": "headers",
+          "x": "500",
+          "y": "150",
+          "width": "400px",
+          "height": "50px",
+          "output": [{"images":"/uploads/header/myphoto-1525765055209.png"}]
+        },
+        {
+          "name": "video",
+          "x": "500",
+          "y": "200",
+          "width": "250px",
+          "height": "100px",
+          "output": [{"images":"/uploads/video/myphoto-1525766131808.mp4"}]
+        },
+        {
+          "name": "slide",
+          "x": "750",
+          "y": "200",
+          "width": "150px",
+          "height": "100px",
+          "output": [
+                    {"images":"/uploads/slide/myphoto-1525075751534.jpg"},
+                    {"images":"/uploads/slide/myphoto-1525075751534.jpg"},
+                    {"images":"/uploads/slide/myphoto-1525075751534.jpg"}
+                    ]
+        },
+        {
+          "name": "table",
+          "x": "500",
+          "y": "300",
+          "width": "400px",
+          "height": "50px",
+          "output": [
+            {"tabel":"Euro"},
+            {"tabel":"Lek"},
+            {"tabel":"Dollar"},
+            {"shitet":"1"},
+            {"shitet":"2"},
+            {"shitet":"3"},
+            {"blihet":"1"},
+            {"blihet":"2"},
+            {"blihet":"3"}
+          ]
+        }
+      ]
+    }
     ]
     }

@@ -1,35 +1,64 @@
 <%- include ./layout %>
 
 <div>
-        <% for(var i=0;i<lay.layouts.length;i++){%>
-                <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
-                        <a href="/home/list-<%= lay.layouts[i].block[y].name%>"> 
-        <table style="background-color:aqua;text-align:center" id="<%= lay.layouts[i].block[y].name%>" border="1" width="<%= lay.layouts[i].block[y].width%>" height="<%= lay.layouts[i].block[y].height%>" >
-            <tr>
-                 <td ><%= lay.layouts[i].block[y].name%></td>
-       </tr>
-    </table>
-</a>         
-   <% }%>
+        
+        <% for(var y=0;y<lay.layouts[id].block.length;y++){%>
+        <a href="/home/list-layout/<%=id%>/list-<%= lay.layouts[id].block[y].name%>"> 
+        <table style="background-color:aqua;text-align:center" id="<%= lay.layouts[id].block[y].name%>" border="1" width="<%= lay.layouts[id].block[y].width%>" height="<%= lay.layouts[id].block[y].height%>" >
+        <tr>
+        <td ><%= lay.layouts[id].block[y].name%></td>
+        </tr>
+        </table>
+        </a>         
    <% }%>
 
 </div>
  
 <script>
+
+
+if('<%=id%>' === '0'){
 var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var footer =document.getElementById('footer');
+
 header.style.position = "absolute";
 header.style.left = '<%= lay.layouts[0].block[0].x%>';
 header.style.top = '<%= lay.layouts[0].block[0].y%>';
-var video =document.getElementById('video');
+
 video.style.position = "absolute";
 video.style.left = '<%= lay.layouts[0].block[1].x%>';
 video.style.top = '<%= lay.layouts[0].block[1].y%>';
-var slide =document.getElementById('slide');
+
 slide.style.position = "absolute";
 slide.style.left = '<%= lay.layouts[0].block[2].x%>';
 slide.style.top = '<%= lay.layouts[0].block[2].y%>';
-var footer =document.getElementById('footer');
+
 footer.style.position = "absolute";
 footer.style.left = '<%= lay.layouts[0].block[3].x%>';
 footer.style.top = '<%= lay.layouts[0].block[3].y%>';
+}
+else {
+var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var table =document.getElementById('table');
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+     
+table.style.position = "absolute";
+table.style.left = '<%= lay.layouts[0].block[3].x%>';
+table.style.top = '<%= lay.layouts[0].block[3].y%>';   
+}
+
 </script>

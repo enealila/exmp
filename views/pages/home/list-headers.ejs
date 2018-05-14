@@ -12,21 +12,25 @@
     </form>  
   <a href="/home/save/:src">Save!</a>
   <table>
-    <tr>
-        <% for(var i=0;i<images.length;i++){%>
-        <% if(images[i].destination === './public/uploads/header/'){%>
-            
-        <td>
-        <img src="/uploads/header/<%=images[i].filename%>" width="200" height="200">
-        </td>
-        <td><a href="/home/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a></td>
-   
-        <%}}%>
-    </tr>
-    </table> 
+      <tr>
+          <% for(var i=0;i<lay.layouts.length;i++){%>
+              <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
+                <% if( i === %><%=id%><%){%>
+                <% if(lay.layouts[i].block[y].name === 'headers'){%>
+                  <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
+                  <td>
+                      <img src="<%=lay.layouts[i].block[y].output[z].images%>" width="200" height="200"/>
+                      </td>
+                      <td><a href="/home/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a></td>
+  
+               <% }}}}}%>
+      </tr>
+      </table> 
 </div>
 <%- include ../partials/footer %>
 <script type="text/javascript">
 document.getElementById("file").onchange = function() {
+  document.getElementById("form").submit();
 };
+
 </script>

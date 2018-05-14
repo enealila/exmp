@@ -6,31 +6,17 @@
           <td>Shitet</td>
           <td>Blihet</td>
       </tr>
+      <% for(var i=0;i<lay.layouts.length;i++){%>
+            <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
+              <% if(lay.layouts[i].block[y].name === 'table'){%>
+                <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
       <tr>
         <form action="/home/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
-        <td><input type="text" name="name" id="data1" value="<%= table[0].name%>" ></td>
-        <td><input type="text" name="sell" id="data2" value="<%= table[0].sell%>" ></td>
-        <td><input type="text" name="buy" id="data3" value="<%= table[0].buy%>" ></td>
+        <td><input type="text" name="name" id="data1" value="<%= lay.layouts[i].block[y].output[z].tabel%>" ></td>
+        <td><input type="text" name="sell" id="data2" value="<%= lay.layouts[i].block[y].output[z].shitet%>" ></td>
+        <td><input type="text" name="buy" id="data3" value="<%= lay.layouts[i].block[y].output[z].blihet%>" ></td>
         
     </form> 
-     </tr>
-     <tr>
-        <form action="/home/list-table/update/<%= table[1]._id%>" method="POST" id="form2">
-            <td><input type="text" name="name" id="data4" value="<%= table[1].name%>" ></td>
-            <td><input type="text" name="sell" id="data5" value="<%= table[1].sell%>" ></td>
-            <td><input type="text" name="buy" id="data6" value="<%= table[1].buy%>" ></td>
-  
-        </form> 
-     </tr>
-     <tr>
-            <form action="/home/list-table/update/<%= table[2]._id%>" method="POST" id="form3">
-            <td><input type="text" name="name"  id="data7" value="<%= table[2].name%>" ></td>
-            <td><input type="text" name="sell" id="data8"  value="<%= table[2].sell%>" ></td>
-            <td><input type="text" name="buy" id="data9" value="<%= table[2].buy%>" ></td>
-
-        </form> 
-     </tr>
-     
   </table>
   
   <footer><%- include ../partials/footer %></footer>

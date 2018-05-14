@@ -10,17 +10,18 @@
   </form>
   <table>
         <tr>
-            <% for(var i=0;i<images.length;i++){%>
-            <% if(images[i].destination === './public/uploads/slide/'){%>
-                
-            <td>
-            <img src="/uploads/slide/<%=images[i].filename%>" width="200" height="200">
-            </td>
-            <td><a href="/home/list-slide/remove/<%=images[i]._id%>" style="color:red">X</a></td>
-       
-            <%}}%>
+            <% for(var i=0;i<lay.layouts.length;i++){%>
+                <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
+                  <% if(lay.layouts[i].block[y].name === 'slide'){%>
+                    <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
+                    <td>
+                        <img src="<%=lay.layouts[i].block[y].output[z].images%>" width="200" height="200"/>
+                        </td>
+                        <td><a href="/home/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a></td>
+    
+                 <% }} }}%>
         </tr>
-  </table>  
+        </table> 
   
        
         
