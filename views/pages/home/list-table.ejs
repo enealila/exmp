@@ -1,22 +1,33 @@
-
-<%- include ./list-layout%>
+<%- include ./layout%>
+<div>
+        
+    <% for(var y=0;y<lay.layouts[idd].block.length;y++){%>
+    <table style="background-color:aqua;text-align:center" id="<%= lay.layouts[idd].block[y].name%>" border="1" width="<%= lay.layouts[idd].block[y].width%>" height="<%= lay.layouts[idd].block[y].height%>" >
+    <tr>
+    <td ><a href="/home/list-layout/list-<%= lay.layouts[idd].block[y].name%>/<%=lay.layouts[idd].id%>" > <%= lay.layouts[idd].block[y].name%> </a></td>
+    </tr>
+    </table>      
+    <% }%>
+    
+    </div>
   <table border="0" width="300px" height="400px">
       <tr>
           <td>Monedha</td>
           <td>Shitet</td>
           <td>Blihet</td>
       </tr>
-      <% for(var i=0;i<lay.layouts.length;i++){%>
-            <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
-              <% if(lay.layouts[i].block[y].name === 'table'){%>
-                <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
+      
+            <% for(var y=0;y<lay.layouts[idd].block.length;y++){%>
+              <% if(lay.layouts[idd].block[y].name === 'table'){%>
+                <%for(var z=0;z<lay.layouts[idd].block[y].output.length;z++){%>
       <tr>
         <form action="/home/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
-        <td><input type="text" name="name" id="data1" value="<%= lay.layouts[i].block[y].output[z].tabel%>" ></td>
-        <td><input type="text" name="sell" id="data2" value="<%= lay.layouts[i].block[y].output[z].shitet%>" ></td>
-        <td><input type="text" name="buy" id="data3" value="<%= lay.layouts[i].block[y].output[z].blihet%>" ></td>
-        
-    </form> 
+        <td><input type="text" name="name" id="data1" value="<%= lay.layouts[idd].block[y].output[z].tabel%>" ></td>
+        <td><input type="text" name="sell" id="data2" value="<%= lay.layouts[idd].block[y].output[z].shitet%>" ></td>
+        <td><input type="text" name="buy" id="data3" value="<%= lay.layouts[idd].block[y].output[z].blihet%>" ></td>
+        </form> 
+    </tr>
+    <%}}}%>
   </table>
   
   <footer><%- include ../partials/footer %></footer>
@@ -48,4 +59,48 @@
     document.getElementById("data9").onchange = function(){
         document.getElementById("form3").submit();
     }
+    if('<%=idd%>' === '0'){
+var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var footer =document.getElementById('footer');
+
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+
+footer.style.position = "absolute";
+footer.style.left = '<%= lay.layouts[0].block[3].x%>';
+footer.style.top = '<%= lay.layouts[0].block[3].y%>';
+}
+else {
+var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var table =document.getElementById('table');
+
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+     
+table.style.position = "absolute";
+table.style.left = '<%= lay.layouts[0].block[3].x%>';
+table.style.top = '<%= lay.layouts[0].block[3].y%>';   
+}
       </script>

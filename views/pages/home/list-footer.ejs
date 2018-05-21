@@ -1,7 +1,17 @@
 
-    
-    <%- include ./list-layout%>
-    
+    <%- include ./layout%>
+    <div>
+            
+        <% for(var y=0;y<lay.layouts[idd].block.length;y++){%>
+        <table style="background-color:aqua;text-align:center" id="<%= lay.layouts[idd].block[y].name%>" border="1" width="<%= lay.layouts[idd].block[y].width%>" height="<%= lay.layouts[idd].block[y].height%>" >
+        <tr>
+        <td ><a href="/home/list-layout/list-<%= lay.layouts[idd].block[y].name%>/<%=lay.layouts[idd].id%>" > <%= lay.layouts[idd].block[y].name%> </a></td>
+        </tr>
+        </table>      
+        <% }%>
+        
+        </div>
+   
     <form
     id="form"
        name="upload"
@@ -13,16 +23,16 @@
   </form>  
   <table>
         <tr>
-            <% for(var i=0;i<lay.layouts.length;i++){%>
-                <% for(var y=0;y<lay.layouts[i].block.length;y++){%>
-                  <% if(lay.layouts[i].block[y].name === 'footer'){%>
-                    <%for(var z=0;z<lay.layouts[i].block[y].output.length;z++){%>
+            
+                <% for(var y=0;y<lay.layouts[idd].block.length;y++){%>
+                  <% if(lay.layouts[idd].block[y].name === 'footer'){%>
+                    <%for(var z=0;z<lay.layouts[idd].block[y].output.length;z++){%>
                     <td>
-                        <img src="<%=lay.layouts[i].block[y].output[z].images%>" width="200" height="200"/>
+                        <img src="<%=lay.layouts[idd].block[y].output[z].images%>" width="200" height="200"/>
                         </td>
-                        <td><a href="/home/list-headers/remove/<%=images[i]._id%>" style="color:red">X</a></td>
+                    
     
-                 <% }} }}%>
+                 <% }} }%>
         </tr>
         </table> 
           
@@ -33,5 +43,49 @@
       document.getElementById("file").onchange = function() {
       document.getElementById("form").submit();
       };
+      if('<%=idd%>' === '0'){
+var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var footer =document.getElementById('footer');
+
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+
+footer.style.position = "absolute";
+footer.style.left = '<%= lay.layouts[0].block[3].x%>';
+footer.style.top = '<%= lay.layouts[0].block[3].y%>';
+}
+else {
+var header =document.getElementById('headers');
+var video =document.getElementById('video');
+var slide =document.getElementById('slide');
+var table =document.getElementById('table');
+
+header.style.position = "absolute";
+header.style.left = '<%= lay.layouts[0].block[0].x%>';
+header.style.top = '<%= lay.layouts[0].block[0].y%>';
+
+video.style.position = "absolute";
+video.style.left = '<%= lay.layouts[0].block[1].x%>';
+video.style.top = '<%= lay.layouts[0].block[1].y%>';
+
+slide.style.position = "absolute";
+slide.style.left = '<%= lay.layouts[0].block[2].x%>';
+slide.style.top = '<%= lay.layouts[0].block[2].y%>';
+     
+table.style.position = "absolute";
+table.style.left = '<%= lay.layouts[0].block[3].x%>';
+table.style.top = '<%= lay.layouts[0].block[3].y%>';   
+}
       </script>
       

@@ -6,6 +6,8 @@ const ObjectId    = mongoose.Types.ObjectId();
 const Table    = require('../models/Table');
 const lay = require('../lay.json');
 let listVideo = (req,res)=>{
+    var id= req.params._id;
+    var idd = req.params.id;
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -16,7 +18,7 @@ let listVideo = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-video', {
-                images,table,lay
+                images,table,lay,id,idd
                 
             });
         })

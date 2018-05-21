@@ -6,8 +6,8 @@ const ObjectId    = mongoose.Types.ObjectId();
 const Table   = require('../models/Table');
 const lay = require('../lay.json');
 let listHeaders = (req,res)=>{
-    var id= req.params;
-
+    var id= req.params._id;
+    var idd = req.params.id;
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -18,8 +18,10 @@ let listHeaders = (req,res)=>{
             console.log(images);
             console.log(table);
             console.log(id);
+            console.log(lay);
+            console.log(idd);
             res.render('home/list-headers', {
-                images,table,lay,id
+                images,table,lay,id,idd
                 
             });
         })

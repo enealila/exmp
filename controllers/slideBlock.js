@@ -6,6 +6,8 @@ const ObjectId    = mongoose.Types.ObjectId();
 const Table    = require('../models/Table');
 const lay = require('../lay.json');
 let listSlide = (req,res)=>{
+    var id= req.params._id;
+    var idd = req.params.id;
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -16,7 +18,7 @@ let listSlide = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-slide', {
-                images,table,lay
+                images,table,lay,id,idd
                 
             });
         })

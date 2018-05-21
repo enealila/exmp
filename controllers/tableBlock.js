@@ -7,6 +7,8 @@ const Table       = require('../models/Table');
 const bodyParser = require('body-parser');
 const lay = require('../lay.json');
 let listTable = (req,res)=>{
+    var id= req.params._id;
+    var idd = req.params.id;
     Promise.all([
         Images.find({}).exec(),
         Table.find({}).exec()
@@ -17,7 +19,7 @@ let listTable = (req,res)=>{
             console.log(images);
             console.log(table);
             res.render('home/list-table', {
-                images,table,lay
+                images,table,lay,id,idd
                 
             });
         })

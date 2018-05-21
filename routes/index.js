@@ -34,10 +34,11 @@ module.exports = (app) =>{
     app.get('/home/list-slide/'                 , user.is.LOGGED         , slideController.listSlide         );
     app.get('/home/list-footer/'                , user.is.LOGGED         , footerController.listFooter       );
 
-    app.get('/home/list-layout/:id/list-headers/'         , user.is.LOGGED         , headerController.listHeaders      );
-    app.get('/home/list-layout/:id/list-video/'           , user.is.LOGGED         , videoController.listVideo         );
-    app.get('/home/list-layout/:id/list-slide/'           , user.is.LOGGED         , slideController.listSlide         );
-    app.get('/home/list-layout/:id/list-footer/'          , user.is.LOGGED         , footerController.listFooter       );
+    app.get('/home/list-layout/list-headers/:id'         , user.is.LOGGED         , headerController.listHeaders      );
+    app.get('/home/list-layout/list-video/:id'           , user.is.LOGGED         , videoController.listVideo         );
+    app.get('/home/list-layout/list-slide/:id'           , user.is.LOGGED         , slideController.listSlide         );
+    app.get('/home/list-layout/list-footer/:id'          , user.is.LOGGED         , footerController.listFooter       );
+    app.get('/home/list-layout/list-table/:id'          , user.is.LOGGED         , tableController.listTable       );
 
     app.get('/home/list-layout/:id'                , user.is.LOGGED         , layoutController.listLayout       );
 
