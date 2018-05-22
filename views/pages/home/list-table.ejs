@@ -18,47 +18,48 @@
       </tr>
       
             <% for(var y=0;y<lay.layouts[idd].block.length;y++){%>
-              <% if(lay.layouts[idd].block[y].name === 'table'){%>
-                <%for(var z=0;z<lay.layouts[idd].block[y].output.length;z++){%>
+            <% if(lay.layouts[idd].block[y].name === 'table'){%>
+            <%for(var z=0;z<lay.layouts[idd].block[y].output.length;z++){%>
       <tr>
         <form action="/home/list-table/update/<%= table[0]._id%>" method="POST" id="form1">
-        <td><input type="text" name="name" id="data1" value="<%= lay.layouts[idd].block[y].output[z].tabel%>" ></td>
-        <td><input type="text" name="sell" id="data2" value="<%= lay.layouts[idd].block[y].output[z].shitet%>" ></td>
-        <td><input type="text" name="buy" id="data3" value="<%= lay.layouts[idd].block[y].output[z].blihet%>" ></td>
-        </form> 
+        <td><input type="text" name="name" id="" value="<%= lay.layouts[idd].block[y].output[z].tabel%>" ></td>
+        <td><input type="text" name="sell" id="" value="<%= lay.layouts[idd].block[y].output[z].shitet%>" ></td>
+        <td><input type="text" name="buy" id="" value="<%= lay.layouts[idd].block[y].output[z].blihet%>" ></td>
+    </form> 
     </tr>
     <%}}}%>
+
   </table>
   
   <footer><%- include ../partials/footer %></footer>
   <script type="text/javascript">
-    document.getElementById("data1").onchange = function(){
-        document.getElementById("form1").submit();
-    }
-    document.getElementById("data2").onchange = function(){
-        document.getElementById("form1").submit();
-    }
-    document.getElementById("data3").onchange = function(){
-        document.getElementById("form1").submit();
-    }
-    document.getElementById("data4").onchange = function(){
-        document.getElementById("form2").submit();
-    }
-    document.getElementById("data5").onchange = function(){
-        document.getElementById("form2").submit();
-    }
-    document.getElementById("data6").onchange = function(){
-        document.getElementById("form2").submit();
-    }
-    document.getElementById("data7").onchange = function(){
-        document.getElementById("form3").submit();
-    }
-    document.getElementById("data8").onchange = function(){
-        document.getElementById("form3").submit();
-    }
-    document.getElementById("data9").onchange = function(){
-        document.getElementById("form3").submit();
-    }
+    // document.getElementById("data1").onchange = function(){
+    //     document.getElementById("form1").submit();
+    // }
+    // document.getElementById("data2").onchange = function(){
+    //     document.getElementById("form1").submit();
+    // }
+    // document.getElementById("data3").onchange = function(){
+    //     document.getElementById("form1").submit();
+    // }
+    // document.getElementById("data4").onchange = function(){
+    //     document.getElementById("form2").submit();
+    // }
+    // document.getElementById("data5").onchange = function(){
+    //     document.getElementById("form2").submit();
+    // }
+    // document.getElementById("data6").onchange = function(){
+    //     document.getElementById("form2").submit();
+    // }
+    // document.getElementById("data7").onchange = function(){
+    //     document.getElementById("form3").submit();
+    // }
+    // document.getElementById("data8").onchange = function(){
+    //     document.getElementById("form3").submit();
+    // }
+    // document.getElementById("data9").onchange = function(){
+    //     document.getElementById("form3").submit();
+    // }
     if('<%=idd%>' === '0'){
 var header =document.getElementById('headers');
 var video =document.getElementById('video');
