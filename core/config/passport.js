@@ -64,7 +64,7 @@ module.exports = (passport) => {
             if (!user)
                 return done(null, false, req.flash('loginMessage', 'Ky email nuk ekziston ne këtë sistem'));
 
-            if (!user.password=== password)
+            if (user.password!== password)
                 return done(null, false, req.flash('loginMessage', 'Kujdes! Fjalëkalimi i gabuar!'));
 
             return done(null, user);
