@@ -1,19 +1,15 @@
 var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../../models/User');
 var bcrypt          = require('bcryptjs');
-
 module.exports = (passport) => {
-
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
-
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
             done(err, user);
         });
     });
-
     passport.use('local-signup', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
@@ -47,11 +43,6 @@ module.exports = (passport) => {
          }
         });
     }));
-
-
- 
-
-
     passport.use('local-login', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
