@@ -42,17 +42,10 @@ let uploadHeader = (req,res) => {
              if(err) throw err;
              console.log(image);
         });
-        
-
-
         }
-        
     }
-
     res.redirect('/home/list-headers');
-
-    })
-       
+    }) 
 }
 
 let uploadVideo = (req,res) => {
@@ -94,17 +87,10 @@ let uploadVideo = (req,res) => {
              if(err) throw err;
              console.log(image);
         });
-        
-
-
-        }
-        
+        }     
     }
-
     res.redirect('/home/list-video-i');
-
-    })
-       
+    }) 
 }
 
 let uploadSlide = (req,res) => {
@@ -115,7 +101,6 @@ let uploadSlide = (req,res) => {
         }
     });
     var upload = multer({storage:storage}).array('myphoto');
-
     upload(req,res,function(err){
         var array = req.files;
         for(var i=0;i<array.length;i++){
@@ -146,19 +131,11 @@ let uploadSlide = (req,res) => {
              if(err) throw err;
              console.log(image);
         });
-        
-
-
         }
-        
     }
-
     res.redirect('/home/list-slide-i');
-
     })
-       
 }
-
 let uploadFooter = (req,res) => {
     var storage = multer.diskStorage({
         destination : './public/uploads/footer/',
@@ -167,7 +144,6 @@ let uploadFooter = (req,res) => {
         }
     });
     var upload = multer({storage:storage}).array('myphoto');
-
     upload(req,res,function(err){
         var array = req.files;
         for(var i=0;i<array.length;i++){
@@ -198,17 +174,10 @@ let uploadFooter = (req,res) => {
              if(err) throw err;
              console.log(image);
         });
-        
-
-
         }
-        
     }
-
     res.redirect('/home/list-footer');
-
     })
-       
 }
 module.exports = {
     uploadFooter,

@@ -38,7 +38,6 @@ let remove = (req,res)=>{
         });
     }
 }
-
 module.exports = {
     listVideo,
     remove,

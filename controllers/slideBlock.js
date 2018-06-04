@@ -38,9 +38,6 @@ let remove = (req,res)=>{
         });
     }
 }
-
-
-
 module.exports = {
     listSlide,
     remove,
